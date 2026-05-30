@@ -1,1 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentación Redes Reales · Málaga, 6 de abril de 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F3EEE5;--paper-2:#EAE3D6;--paper-3:#DED5C4;--ink:#381034;--ink-soft:#5A3E56;--ink-faint:#8B6F3D;--clay:#8B6F3D;--clay-deep:#6E5530;--dark:#381034;--on-dark:#FFFFFF;--line:rgba(56,16,52,.13);--D:"Fraunces",Georgia,serif;--B:"Mulish",sans-serif;--max:860px}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:var(--B);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.45;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px;position:relative;z-index:2}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block;border-radius:12px}
+header{position:sticky;top:0;z-index:100;background:rgba(243,238,229,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;max-width:1100px;margin:0 auto;padding:0 22px}
+.logo{font-family:var(--D);font-weight:600;font-size:1.22rem;color:var(--ink);display:flex;align-items:center;gap:.45em}
+.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--clay)}
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links>a,.nav-links>.drop-wrap>button{font-family:var(--B);font-weight:600;font-size:.88rem;color:var(--ink-soft);padding:.4em .7em;border-radius:8px;border:none;background:none;cursor:pointer;transition:.2s}
+.nav-links>a:hover,.nav-links>.drop-wrap>button:hover{color:var(--clay);background:rgba(139,111,61,.07)}
+.drop-wrap{position:relative}
+.drop-menu{display:none;position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 14px 36px -14px rgba(56,16,52,.28);min-width:230px;overflow:hidden;z-index:200}
+.drop-menu a{display:block;padding:13px 18px;font-size:.88rem;font-weight:600;color:var(--ink-soft);border-bottom:1px solid var(--line);transition:.15s}
+.drop-menu a:last-child{border-bottom:none}
+.drop-menu a:hover,.drop-menu a.active{background:var(--paper-2);color:var(--clay)}
+.drop-wrap:hover .drop-menu,.drop-wrap:focus-within .drop-menu{display:block}
+.btn{display:inline-flex;align-items:center;gap:.4em;font-family:var(--B);font-weight:700;font-size:.88rem;padding:.65em 1.3em;border-radius:999px;border:1.5px solid transparent;cursor:pointer;transition:.22s;white-space:nowrap}
+.btn-p{background:var(--clay);color:#fff}.btn-p:hover{background:var(--clay-deep);transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--ink);border-color:var(--line)}.btn-g:hover{border-color:var(--clay);color:var(--clay)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+.mob-menu{display:none;flex-direction:column;padding:6px 22px 20px;gap:0;border-bottom:1px solid var(--line);background:var(--paper)}
+.mob-menu a{padding:11px 0;font-weight:600;font-size:.92rem;border-bottom:1px solid var(--line);color:var(--ink-soft)}
+.mob-menu a:hover{color:var(--clay)}.mob-menu .btn{margin-top:14px;justify-content:center}
+.mob-section{padding:8px 0 2px;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--clay);border-bottom:none!important}
+.hero{background:var(--dark);padding:68px 0 52px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 55% at 15% 80%,rgba(139,111,61,.2),transparent 65%)}
+.hero-inner{position:relative;z-index:2}
+.eyebrow{display:inline-flex;align-items:center;gap:.55em;font-weight:800;font-size:.76rem;text-transform:uppercase;letter-spacing:.18em;color:var(--clay);margin-bottom:20px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:var(--clay)}
+.hero h1{font-family:var(--D);font-weight:600;font-size:clamp(1.9rem,5vw,3rem);line-height:1.05;color:#fff;margin-bottom:14px}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero-sub{color:rgba(255,255,255,.72);font-size:1rem;max-width:600px;margin-bottom:12px}
+.hero-date{font-size:.88rem;font-weight:700;color:rgba(255,255,255,.48);letter-spacing:.05em}
+.vid-wrap{margin-top:36px;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#000}
+.vid-wrap iframe{width:100%;height:100%;border:none;display:block}
+.vid-cap{text-align:center;font-size:.84rem;color:rgba(255,255,255,.45);margin-top:12px;font-style:italic}
+.content{padding:58px 0 72px}
+.prose{font-size:1.05rem;color:var(--ink-soft);line-height:1.8}
+.prose p{margin-bottom:1.3em}
+.prose strong{color:var(--ink);font-weight:700}
+.sh{font-family:var(--D);font-weight:600;font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);line-height:1.1;margin:46px 0 20px}
+.sh .ki{display:block;font-family:var(--B);font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.15em;color:var(--clay);margin-bottom:9px}
+.divline{width:48px;height:3px;background:var(--clay);border-radius:2px;margin:0 0 28px}
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0 40px}
+.pillar{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:24px 22px;transition:.3s}
+.pillar:hover{border-color:var(--clay);transform:translateY(-2px)}
+.pillar .pn{font-family:var(--D);font-style:italic;color:var(--clay);font-size:.95rem;font-weight:600;margin-bottom:9px}
+.pillar h3{font-family:var(--D);font-size:1.12rem;font-weight:600;color:var(--ink);margin-bottom:9px}
+.pillar p{font-size:.91rem;color:var(--ink-soft)}
+.tgrid{display:grid;gap:22px}
+.tc{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:var(--paper);transition:.3s}
+.tc:hover{transform:translateY(-3px);box-shadow:0 16px 34px -18px rgba(56,16,52,.3);border-color:var(--clay)}
+.tc img{width:100%;height:220px;object-fit:cover;border-radius:0}
+.tc-body{padding:22px 24px 24px}
+.tc-body blockquote{font-family:var(--D);font-style:italic;font-size:1.08rem;line-height:1.5;color:var(--ink);margin-bottom:12px;padding-left:16px;border-left:3px solid var(--clay)}
+.tc-body .au{font-size:.84rem;font-weight:700;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em}
+.back-bar{background:var(--paper-2);padding:26px 0;border-top:1px solid var(--line)}
+.back-bar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+footer{background:var(--dark);color:rgba(255,255,255,.6);padding:38px 0 26px;font-size:.86rem;text-align:center}
+.foot-logo{font-family:var(--D);font-size:1.1rem;font-weight:600;color:#fff;display:flex;align-items:center;gap:.4em;justify-content:center;margin-bottom:10px}
+.foot-legal{color:rgba(255,255,255,.4);font-size:.78rem;margin-top:8px}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .62s ease,transform .62s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:700px){.nav-links{display:none}.burger{display:flex}.pillars{grid-template-columns:1fr}.tc img{height:175px}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo"><span class="logo-dot"></span>Redes Reales</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#novelas">Las novelas</a>
+      <a href="index.html#herramientas">Herramientas</a>
+      <a href="index.html#autor">El autor</a>
+      <div class="drop-wrap">
+        <button>Actividades ▾</button>
+        <div class="drop-menu">
+          <a href="presentacion-abril.html" class="active">🎭 Presentación — 6 abril 2026</a>
+          <a href="madre-carmen.html">🏠 Residencia Madre Carmen — Mayo 2026</a>
+        </div>
+      </div>
+      <a href="https://forms.gle/EKiRuaKvszSsBbDC8" target="_blank" rel="noopener" class="btn btn-p">Reservar ejemplares</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+  </nav>
+  <nav class="mob-menu" id="mobMenu">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#novelas">Las novelas</a>
+    <a href="index.html#herramientas">Herramientas</a>
+    <a href="index.html#autor">El autor</a>
+    <span class="mob-section">Actividades</span>
+    <a href="presentacion-abril.html">🎭 Presentación — 6 abril 2026</a>
+    <a href="madre-carmen.html">🏠 Residencia Madre Carmen</a>
+    <a href="https://forms.gle/EKiRuaKvszSsBbDC8" target="_blank" rel="noopener" class="btn btn-p">Reservar ejemplares</a>
+  </nav>
+</header>
 
+<section class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Presentación oficial · Ámbito Cultural · Málaga</span>
+    <h1>El estreno de<br><em>«Redes Reales»</em></h1>
+    <p class="hero-sub">Literatura, teatro y compromiso para romper la indiferencia. Sala Ámbito Cultural, El Corte Inglés de Málaga.</p>
+    <div class="hero-date">6 de abril de 2026</div>
+    <div class="vid-wrap">
+      <iframe src="https://www.youtube.com/embed/sWp4QwGrZ70" title="Momentos destacados presentación Redes Reales" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="vid-cap">Toca en la imagen para ver momentos destacados de la presentación</p>
+  </div>
+</section>
+
+<section class="content">
+  <div class="wrap">
+    <div class="prose rv">
+      <p>El pasado 6 de abril, la Sala de Ámbito Cultural (El Corte Inglés de Málaga) acogió un encuentro diferente. Lejos del clásico monólogo de autor, transformamos el espacio en un escenario de voces compartidas para poner sobre la mesa, de forma directa, las realidades sociales que nos rodean.</p>
+      <p>La presentación se estructuró sobre dos pilares fundamentales:</p>
+    </div>
+    <div class="pillars rv">
+      <div class="pillar"><div class="pn">01</div><h3>La visión experta y cercana</h3><p>Intervención de <strong>doña María Isabel Borda</strong>, Doctora en Filología Hispánica y docente de la Universidad de Málaga. Apostó firmemente por el proyecto para fomentar redes de apoyo y trabajar el espíritu crítico en bibliotecas, asociaciones culturales, clubes de lectura y aulas.</p></div>
+      <div class="pillar"><div class="pn">02</div><h3>La ficción encarnada</h3><p>El elenco formado por <strong>Mel Rocher, Mati Anaya y Elizabet Domínguez</strong> dio vida en directo a los protagonistas de la trilogía mediante lecturas dramatizadas. El público pudo escuchar, a un palmo de distancia, a quienes habitualmente permanecen en el más absoluto de los silencios.</p></div>
+    </div>
+    <div class="prose rv">
+      <p>Fue una tarde en la que la literatura, la fuerza del teatro y la conciencia social se unieron con un único propósito: <strong>crear la magia necesaria para romper la indiferencia.</strong></p>
+    </div>
+
+    <h2 class="sh rv"><span class="ki">Testimonios</span>¿Qué dice el público que ya lo ha vivido?</h2>
+    <div class="divline rv"></div>
+
+    <div class="tgrid">
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20SERGIO.jpg" alt="Sergio">
+        <div class="tc-body"><blockquote>«Ha sido una experiencia muy gratificante y me ha sorprendido muchísimo. ¡Una pasada como escribes! Sin duda, quiero los tres libros.»</blockquote><div class="au">Sergio, asistente al evento de presentación</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20MARI%CC%81A%20JOSE%CC%81.jpg" alt="María José">
+        <div class="tc-body"><blockquote>«Permíteme que te felicite por estas tres obras en las que, con tanta maestría y brillantez, has sabido reflejar tres de los grandes males de nuestro tiempo.»</blockquote><div class="au">María José, asistente al evento de presentación</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20CARMEN.jpg" alt="Carmen">
+        <div class="tc-body"><blockquote>«Las actrices y el actor supieron dar la entonación precisa para transmitirnos el sentir de los protagonistas. Ojalá este proyecto tenga un largo recorrido y ayude a actuar sobre estos tres grandes problemas de nuestra sociedad.»</blockquote><div class="au">Carmen, asistente al evento de presentación</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20LOLA.jpg" alt="Lola">
+        <div class="tc-body"><blockquote>«Los temas no pueden dejar indiferente a nadie, pero creo que tú sabes transmitirlo con la sensibilidad que hace que pensemos "eso lo siento yo, pero no sé cómo expresarlo"... creo que eso sólo lo consiguen los que tienen el don, como tú. Gracias y que haya muchos más.»</blockquote><div class="au">Lola, asistente al evento de presentación</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20M.%20A%CC%81NGELES.jpg" alt="M. Ángeles">
+        <div class="tc-body"><blockquote>«Disfrutamos muchísimo con una propuesta tan original y con esa gran sensibilidad para narrar desde lo más profundo. Me ha calado tanto que hoy, al contarlo en casa, no he podido evitar emocionarme. Fue un auténtico regalo.»</blockquote><div class="au">M. Ángeles, Profesora de Lengua y Literatura</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20IRENE.jpg" alt="Irene">
+        <div class="tc-body"><blockquote>«Un proyecto entrañable que refleja una enorme sensibilidad y compromiso con las personas más vulnerables y olvidadas. La presentación, la intervención de los lectores y el diálogo posterior fueron preciosos y emotivos.»</blockquote><div class="au">Irene, Profesora de Matemáticas</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20INNA.jpg" alt="Inna">
+        <div class="tc-body"><blockquote>«Luis transmite humanidad. Los párrafos de sus novelas que se leyeron en la presentación muestran el sufrimiento y la soledad con mucho realismo y sentimiento, llegando al corazón de jóvenes y adultos que lo lean.»</blockquote><div class="au">Inna, asistente al evento de presentación</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20CRISTINA.png" alt="Cristina">
+        <div class="tc-body"><blockquote>«Fue una tarde cargada de sensibilidad y viví emociones que me tocaron muy de cerca. Un abrazo grande.»</blockquote><div class="au">Cristina, Actriz, asistente al evento</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20ISA.png" alt="Isa">
+        <div class="tc-body"><blockquote>«Gracias por invitarme. El acto fue muy fino, emotivo y bonito.»</blockquote><div class="au">Isa, Actriz, asistente al evento</div></div>
+      </div>
+
+      <div class="tc rv">
+        <img src="FOTO%20COMENTARIO%20AGUSTINA.png" alt="Agustina">
+        <div class="tc-body"><blockquote>«La historia de Elena me recordó inmediatamente a la situación de un familiar muy cercano... Sin duda, se lo voy a regalar.»</blockquote><div class="au">Agustina, Profesora, asistente al evento</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="back-bar">
+  <div class="wrap">
+    <a href="index.html" class="btn btn-g">← Volver al inicio</a>
+    <a href="madre-carmen.html" class="btn btn-p">Residencia Madre Carmen →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo"><span class="logo-dot" style="background:var(--clay)"></span>Redes Reales</div>
+    <div class="foot-legal">© 2025–2026 Luis Manuel Alcántara · Redes Reales<br>Registro de la Propiedad Intelectual · Nº Asiento 04/2025/5554 y 04/2026/2347</div>
+  </div>
+</footer>
+
+<script>
+const b=document.getElementById('burger'),m=document.getElementById('mobMenu');
+b.addEventListener('click',()=>{const o=m.style.display==='flex';m.style.display=o?'none':'flex'});
+m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{m.style.display='none'}));
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
